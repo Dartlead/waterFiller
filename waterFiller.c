@@ -1,108 +1,85 @@
-/* For usleep() */
 #include <unistd.h>
 #include <stdint.h>
 #include <stddef.h>
 #include <stdbool.h>
-
-/* Driver Header files */
-#include <ti/drivers/GPIO.h>
 #include <ti/drivers/gpio/GPIOCC32XX.h>
 #include <ti/drivers/Power.h>
 #include <ti/boards/CC3220S_LAUNCHXL/CC3220S_LAUNCHXL.h>
-
-/* Board Header file */
-#include <Board.h>
-
-/* Nick's Header files */
 #include <state.h>
 #include <water.h>
+#include <should_not_happen.h>
+#include <button.h>
 
 /*--------------------------------Constants & Pound Defines------------------------------------*/
-#ifdef DEBUG
-static const int sleep_duration = 2;
-#endif
 
 /*--------------------------------Global Variables---------------------------------------------*/
-/* Flag for internal tracking of whether or not the button has been pressed */
-static volatile bool gb_button_pressed = false;
 
 /*--------------------------------Local Function Prototypes------------------------------------*/
-#ifdef TEST_STATE
-static void gpio_button_callback(uint_least8_t index);
-#endif
-/*
- * Callback for the GPIO pin connected to the Big Red Button. Once the button is pressed this
- * callback function is triggered.
- */
-static void button_pin_callback(uint_least8_t index);
 
 /*--------------------------------Main Thread--------------------------------------------------*/
 void *mainThread(void *arg0)
 {
-    /* Call driver init functions */
+    /* Call driver initialization functions */
     GPIO_init();
 
-    /* Install and enable the callback for the BigRedButton's GPIO input */
-    GPIO_setCallback(3, button_pin_callback);
-    GPIO_enableInt(3);
+    /* Enable the ISR for the Big Red Button */
+    initialize_button_interrupt();
+
+    /* Create the sleep duration */
+    const int sleep_duration = 2;
 
     /* Start the FSM in SLEEP state */
     state_list_t current_state = SLEEP;
+
+    /* Initialize the water dispensing boolean to false */
     bool b_did_water_dispense = false;
 
-    static const int sleep_duration = 2; //Static local variable means it is statically allocated - retains is value between invocations... keep as a just in case???
-
+    /* Main control loop */
     while (1)
     {
         switch (current_state)
         {
+            /* State */
             case SLEEP:
+                /* State action */
                 sleep(sleep_duration);
-                if (gb_button_pressed == true)
+
+                /* State transition */
+                if (is_the_button_pressed())
                 {
-                    gb_button_pressed = false;
+                    clear_button_interrupt();
                     current_state = get_next_state(current_state);
                 }
                 else
                 {
-                    gb_button_pressed = false;
+                    //This should always happen if no button press
                 }
             break;
+
+            /* State */
             case DISPENSE:
+                /* State action */
                 b_did_water_dispense = dispense_water();
+
+                /* State transition */
                 if (b_did_water_dispense == true)
                 {
                     current_state = get_next_state(current_state);
                 }
                 else
                 {
-                    //error out
-                    while (1);
+                    standard_error();
                 }
             break;
-            default: //Not necessary but matter of good form
-                sleep(sleep_duration);
+
+            default:
+                this_should_never_happen_error();
             break;
         }
     }
 }
 
 /*--------------------------------Local Function Definitions-----------------------------------*/
-#ifdef TEST_STATE
-void gpio_button_callback(uint_least8_t index)
-{
-    gb_button_pressed = true;
-}
-#endif
-/*
- * Callback for the GPIO pin connected to the Big Red Button. Once the button is pressed this
- * callback function is triggered.
- */
-void button_pin_callback(uint_least8_t index)
-{
-    gb_button_pressed = true;
-}
-
 
 
 

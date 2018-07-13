@@ -1,17 +1,6 @@
 #include <stdbool.h>
 #include <water.h>
 
-/*
- * This function is intended to convert the water levels of the container into a percentage.
- *
- * Inputs: the current water level in the container
- * Outputs: the percentage of water left in the container
- */
-static int convert_to_percentage(int water_level)
-{
-    return 10;
-}
-
 /* dispenseWater(void)
  * This function is intended to actuate the motor to funnel water from the container into
  * the dog's water bowl.
