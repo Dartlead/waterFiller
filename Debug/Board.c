@@ -30,6 +30,14 @@
 GPIO_PinConfig gpioPinConfigs[] = {
     /* Board_GPIO_LED0 : Launchpad LED D7 (Red) */
     GPIOCC32XX_GPIO_09 | GPIO_CFG_OUT_STD | GPIO_CFG_OUT_STR_MED | GPIO_CFG_OUT_LOW,
+    /* Board_GPIO_LED1 : Launchpad LED D5 (Green) */
+    GPIOCC32XX_GPIO_11 | GPIO_CFG_OUT_STD | GPIO_CFG_OUT_STR_MED | GPIO_CFG_OUT_LOW,
+    /* Board_GPIO_BUTTON0 : Launchpad User Button SW2 (left) */
+    GPIOCC32XX_GPIO_13 | GPIO_DO_NOT_CONFIG,
+    /* Board_GPIO_BUTTON1 : Launchpad User Button SW3 (right) */
+    GPIOCC32XX_GPIO_22 | GPIO_DO_NOT_CONFIG,
+    /* Board_GPIO_LED2 : Launchpad LED D6 (Yellow) */
+    GPIOCC32XX_GPIO_10 | GPIO_CFG_OUT_STD | GPIO_CFG_OUT_STR_MED | GPIO_CFG_OUT_LOW,
 };
 
 /*
@@ -42,6 +50,14 @@ GPIO_PinConfig gpioPinConfigs[] = {
 GPIO_CallbackFxn gpioCallbackFunctions[] = {
     /* Board_GPIO_LED0 : Launchpad LED D7 (Red) */
     NULL,
+    /* Board_GPIO_LED1 : Launchpad LED D5 (Green) */
+    NULL,
+    /* Board_GPIO_BUTTON0 : Launchpad User Button SW2 (left) */
+    NULL,
+    /* Board_GPIO_BUTTON1 : Launchpad User Button SW3 (right) */
+    NULL,
+    /* Board_GPIO_LED2 : Launchpad LED D6 (Yellow) */
+    NULL,
 };
 
 /*
@@ -50,8 +66,8 @@ GPIO_CallbackFxn gpioCallbackFunctions[] = {
 const GPIOCC32XX_Config GPIOCC32XX_config = {
     .pinConfigs = (GPIO_PinConfig *)gpioPinConfigs,
     .callbacks = (GPIO_CallbackFxn *)gpioCallbackFunctions,
-    .numberOfPinConfigs = 1,
-    .numberOfCallbacks = 1,
+    .numberOfPinConfigs = 5,
+    .numberOfCallbacks = 5,
     .intPriority = 0xe0
 };
 

@@ -11,8 +11,7 @@ button.obj: /Applications/ti/ccsv8/tools/compiler/ti-cgt-arm_18.1.2.LTS/include/
 button.obj: /Applications/ti/ccsv8/tools/compiler/ti-cgt-arm_18.1.2.LTS/include/sys/_stdint.h
 button.obj: /Applications/ti/ccsv8/tools/compiler/ti-cgt-arm_18.1.2.LTS/include/stdbool.h
 button.obj: /Applications/ti/simplelink_cc32xx_sdk_2_20_00_10/source/ti/drivers/GPIO.h
-button.obj: /Applications/ti/simplelink_cc32xx_sdk_2_20_00_10/source/ti/boards/CC3220S_LAUNCHXL/Board.h
-button.obj: /Applications/ti/simplelink_cc32xx_sdk_2_20_00_10/source/ti/boards/CC3220S_LAUNCHXL/CC3220S_LAUNCHXL.h
+button.obj: /Applications/ti/Workspace/waterFiller/Debug/Board.h
 
 ../button.c: 
 /Applications/ti/Workspace/waterFiller/button.h: 
@@ -25,5 +24,4 @@ button.obj: /Applications/ti/simplelink_cc32xx_sdk_2_20_00_10/source/ti/boards/C
 /Applications/ti/ccsv8/tools/compiler/ti-cgt-arm_18.1.2.LTS/include/sys/_stdint.h: 
 /Applications/ti/ccsv8/tools/compiler/ti-cgt-arm_18.1.2.LTS/include/stdbool.h: 
 /Applications/ti/simplelink_cc32xx_sdk_2_20_00_10/source/ti/drivers/GPIO.h: 
-/Applications/ti/simplelink_cc32xx_sdk_2_20_00_10/source/ti/boards/CC3220S_LAUNCHXL/Board.h: 
-/Applications/ti/simplelink_cc32xx_sdk_2_20_00_10/source/ti/boards/CC3220S_LAUNCHXL/CC3220S_LAUNCHXL.h: 
+/Applications/ti/Workspace/waterFiller/Debug/Board.h: 

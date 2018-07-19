@@ -10,9 +10,11 @@ SYSCFG_SRCS += \
 ../empty.syscfg 
 
 C_SRCS += \
+../board_sleep.c \
 ../button.c \
 ./Board.c \
 ../main_tirtos.c \
+../on_board_functionality.c \
 ../should_not_happen.c \
 ../state.c \
 ../utility.c \
@@ -26,9 +28,11 @@ GEN_FILES += \
 ./Board.c 
 
 C_DEPS += \
+./board_sleep.d \
 ./button.d \
 ./Board.d \
 ./main_tirtos.d \
+./on_board_functionality.d \
 ./should_not_happen.d \
 ./state.d \
 ./utility.d \
@@ -36,9 +40,11 @@ C_DEPS += \
 ./waterFiller.d 
 
 OBJS += \
+./board_sleep.obj \
 ./button.obj \
 ./Board.obj \
 ./main_tirtos.obj \
+./on_board_functionality.obj \
 ./should_not_happen.obj \
 ./state.obj \
 ./utility.obj \
@@ -46,9 +52,11 @@ OBJS += \
 ./waterFiller.obj 
 
 OBJS__QUOTED += \
+"board_sleep.obj" \
 "button.obj" \
 "Board.obj" \
 "main_tirtos.obj" \
+"on_board_functionality.obj" \
 "should_not_happen.obj" \
 "state.obj" \
 "utility.obj" \
@@ -56,9 +64,11 @@ OBJS__QUOTED += \
 "waterFiller.obj" 
 
 C_DEPS__QUOTED += \
+"board_sleep.d" \
 "button.d" \
 "Board.d" \
 "main_tirtos.d" \
+"on_board_functionality.d" \
 "should_not_happen.d" \
 "state.d" \
 "utility.d" \
@@ -72,9 +82,11 @@ GEN_HDRS__QUOTED += \
 "Board.h" 
 
 C_SRCS__QUOTED += \
+"../board_sleep.c" \
 "../button.c" \
 "./Board.c" \
 "../main_tirtos.c" \
+"../on_board_functionality.c" \
 "../should_not_happen.c" \
 "../state.c" \
 "../utility.c" \

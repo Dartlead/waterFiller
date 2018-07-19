@@ -30,6 +30,10 @@ extern "C" {
  */
 
 #define Board_GPIO_LED0             0
+#define Board_GPIO_LED1             1
+#define Board_GPIO_BUTTON0          2
+#define Board_GPIO_BUTTON1          3
+#define Board_GPIO_LED2             4
 
 /* LEDs are active high */
 #define Board_GPIO_LED_ON  (1)

@@ -19,7 +19,7 @@ typedef enum state_list_
  * This function is intended to update the current state of the FSM. The FSM
  * will have no knowledge of transitions for better encapsulation.
  *
- * Inputs: currentState - the current state of the FSM
+ * Inputs: current_state - the current state of the FSM
  * Outputs: the next state the FSM will enter
  */
 extern state_list_t get_next_state(state_list_t current_state);

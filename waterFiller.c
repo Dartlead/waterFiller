@@ -1,14 +1,17 @@
-#include <unistd.h>
+/* Standard header files */
 #include <stdint.h>
 #include <stddef.h>
 #include <stdbool.h>
-#include <ti/drivers/gpio/GPIOCC32XX.h>
-#include <ti/drivers/Power.h>
-#include <ti/boards/CC3220S_LAUNCHXL/CC3220S_LAUNCHXL.h>
+
+#include <ti/drivers/GPIO.h>
+
+/* Project Header files */
 #include <state.h>
 #include <water.h>
 #include <should_not_happen.h>
 #include <button.h>
+#include <board_sleep.h>
+#include <on_board_functionality.h>
 
 /*--------------------------------Constants & Pound Defines------------------------------------*/
 
@@ -19,8 +22,8 @@
 /*--------------------------------Main Thread--------------------------------------------------*/
 void *mainThread(void *arg0)
 {
-    /* Call driver initialization functions */
-    GPIO_init();
+    /* Enable GPIO */
+    enable_gpio_functionality();
 
     /* Enable the ISR for the Big Red Button */
     initialize_button_interrupt();
@@ -42,7 +45,7 @@ void *mainThread(void *arg0)
             /* State */
             case SLEEP:
                 /* State action */
-                sleep(sleep_duration);
+                low_power_deep_sleep_in_seconds(sleep_duration);
 
                 /* State transition */
                 if (is_the_button_pressed())

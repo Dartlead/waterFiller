@@ -1,5 +1,5 @@
 /*
- * Header file to hold any and all functionality pertaining to the big red button.
+ * Header file to hold any and all functionality pertaining to the big red button functionality for the project.
  */
 
 #ifndef BUTTON_H_
@@ -33,6 +33,14 @@ extern bool is_the_button_pressed(void);
  * Outputs: none
  */
 extern void clear_button_interrupt(void);
+
+/*
+ * This function enables the functionality of all GPIO requirements.
+ *
+ * Inputs: none
+ * Outputs: none
+ */
+extern void enable_gpio_functionality(void);
 
 
 #endif /* BUTTON_H_ */

@@ -1,6 +1,10 @@
 #include <button.h>
+
+/* Driver Header files */
 #include <ti/drivers/GPIO.h>
-#include <ti/boards/CC3220S_LAUNCHXL/Board.h>
+
+/* Example/Board Header files */
+#include "Board.h"
 
 #define DEBUG
 
@@ -17,7 +21,6 @@ static volatile bool gb_is_button_pressed = false;
 static void gpio_button_callback(uint_least8_t index)
 {
     gb_is_button_pressed = true;
-    return;
 }
 
 /*
@@ -38,8 +41,6 @@ void initialize_button_interrupt(void)
     GPIO_setCallback(Board_GPIO_BUTTON0, gpio_button_callback);
     GPIO_enableInt(Board_GPIO_BUTTON0);
 #endif
-
-    return
 }
 
 /*
@@ -75,7 +76,18 @@ bool is_the_button_pressed(void)
 void clear_button_interrupt(void)
 {
     gb_is_button_pressed = false;
-    return;
+}
+
+/*
+ * This function enables the functionality of all GPIO requirements by calling the
+ * GPIO_init() function from the GPIO.h TI driver header file.
+ *
+ * Inputs: none
+ * Outputs: none
+ */
+void enable_gpio_functionality(void)
+{
+    GPIO_init();
 }
 
 
