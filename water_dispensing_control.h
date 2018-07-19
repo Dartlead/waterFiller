@@ -3,8 +3,8 @@
  * The separation from the waterFiller.c is meant for encapsulation purposes.
  */
 
-#ifndef WATER_H_
-#define WATER_H_
+#ifndef WATER_DISPENSING_CONTROL_H_
+#define WATER_DISPENSING_CONTROL_H_
 
 #include <stdbool.h>
 
@@ -27,4 +27,4 @@ extern int check_water_level(void);
 
 
 
-#endif /* WATER_H_ */
+#endif /* WATER_DISPENSING_CONTROL_H_ */

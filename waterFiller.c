@@ -3,17 +3,16 @@
 #include <stddef.h>
 #include <stdbool.h>
 
-#include <ti/drivers/GPIO.h>
-
 /* Project Header files */
-#include <state.h>
-#include <water.h>
-#include <should_not_happen.h>
-#include <button.h>
+#include <big_red_button.h>
 #include <board_sleep.h>
+#include <error_responses.h>
 #include <on_board_functionality.h>
+#include <state_machine_control.h>
+#include <water_dispensing_control.h>
 
 /*--------------------------------Constants & Pound Defines------------------------------------*/
+#define DEBUG
 
 /*--------------------------------Global Variables---------------------------------------------*/
 
@@ -22,14 +21,18 @@
 /*--------------------------------Main Thread--------------------------------------------------*/
 void *mainThread(void *arg0)
 {
-    /* Enable GPIO */
-    enable_gpio_functionality();
+    /* Initialize the big red button */
+    initialize_the_big_red_button();
 
-    /* Enable the ISR for the Big Red Button */
-    initialize_button_interrupt();
+#ifdef DEBUG
+    initialize_the_left_on_board_button();
+#endif
 
     /* Create the sleep duration */
     const int sleep_duration = 2;
+
+    /* Create the buffer to hold potential error messages */
+    char *error_message_buffer;
 
     /* Start the FSM in SLEEP state */
     state_list_t current_state = SLEEP;
@@ -48,9 +51,8 @@ void *mainThread(void *arg0)
                 low_power_deep_sleep_in_seconds(sleep_duration);
 
                 /* State transition */
-                if (is_the_button_pressed())
+                if (is_the_big_red_button_pressed())
                 {
-                    clear_button_interrupt();
                     current_state = get_next_state(current_state);
                 }
                 else
@@ -62,7 +64,14 @@ void *mainThread(void *arg0)
             /* State */
             case DISPENSE:
                 /* State action */
+#ifdef PRODUCTION
                 b_did_water_dispense = dispense_water();
+#endif
+#ifdef DEBUG
+                b_did_water_dispense = true;
+                initialize_board_led_d7();
+                toggle_on_board_led_d7();
+#endif
 
                 /* State transition */
                 if (b_did_water_dispense == true)
@@ -71,27 +80,15 @@ void *mainThread(void *arg0)
                 }
                 else
                 {
-                    standard_error();
+                    error_message_buffer = "Dispense water failed to return true";
+                    standard_error(error_message_buffer);
                 }
             break;
 
             default:
-                this_should_never_happen_error();
+                error_message_buffer = "FSM switch statement defaulted";
+                this_should_never_happen_error(error_message_buffer);
             break;
         }
     }
 }
-
-/*--------------------------------Local Function Definitions-----------------------------------*/
-
-
-
-/*Power Modes:
- * Sleep Mode - (standard low power mode for ARM Cortex-M4).
- *              Short wake-up time, any interrupt can wake the MCU (debugger disconnects in this mode).
- * Low Power Deep Sleep - Functional clock and peripheral clocks are gated. Slow clock still runs.
- *              3 ms wake-up time. Only interrupts from network processor, LPDS wake timer, or some GPIO can interrupt sleep.
- *              LPDS does not affect the network processor nor its configurations.
- * Hibernate - Shuts down both the application and network processors. Slow clock still runs.
- *              Everything is shut down, only an interrupt from the slow clock or some GPIOs can wake up the chip.
- */

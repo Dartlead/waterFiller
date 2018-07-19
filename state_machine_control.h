@@ -3,8 +3,8 @@
  * The separation from the waterFiller.c is meant for encapsulation purposes.
  */
 
-#ifndef STATE_H_
-#define STATE_H_
+#ifndef STATE_MACHINE_CONTROL_H_
+#define STATE_MACHINE_CONTROL_H_
 
 /*
  * Declares references for all of the states
@@ -25,4 +25,4 @@ typedef enum state_list_
 extern state_list_t get_next_state(state_list_t current_state);
 
 
-#endif /* STATE_H_ */
+#endif /* STATE_MACHINE_CONTROL_H_ */

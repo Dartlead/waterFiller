@@ -10,16 +10,16 @@ GEN_CMDS += /Applications/ti/Workspace/tirtos_builds_CC3220S_LAUNCHXL_release_cc
 GEN_CMDS__FLAG := -l"/Applications/ti/Workspace/tirtos_builds_CC3220S_LAUNCHXL_release_ccs/Debug/configPkg/linker.cmd"
 
 ORDERED_OBJS += \
+"./big_red_button.obj" \
 "./board_sleep.obj" \
-"./button.obj" \
 "./Board.obj" \
+"./error_responses.obj" \
 "./main_tirtos.obj" \
 "./on_board_functionality.obj" \
-"./should_not_happen.obj" \
-"./state.obj" \
+"./state_machine_control.obj" \
 "./utility.obj" \
-"./water.obj" \
 "./waterFiller.obj" \
+"./water_dispensing_control.obj" \
 "../CC3220S_LAUNCHXL_TIRTOS.cmd" \
 -l"ti/display/lib/display.aem4" \
 -l"ti/grlib/lib/ccs/m4/grlib.a" \
@@ -175,8 +175,8 @@ waterFiller.bin: $(EXE_OUTPUTS)
 # Other Targets
 clean:
 	-$(RM) $(BIN_OUTPUTS__QUOTED)$(GEN_FILES__QUOTED)$(EXE_OUTPUTS__QUOTED)$(GEN_HDRS__QUOTED)
-	-$(RM) "board_sleep.obj" "button.obj" "Board.obj" "main_tirtos.obj" "on_board_functionality.obj" "should_not_happen.obj" "state.obj" "utility.obj" "water.obj" "waterFiller.obj" 
-	-$(RM) "board_sleep.d" "button.d" "Board.d" "main_tirtos.d" "on_board_functionality.d" "should_not_happen.d" "state.d" "utility.d" "water.d" "waterFiller.d" 
+	-$(RM) "big_red_button.obj" "board_sleep.obj" "Board.obj" "error_responses.obj" "main_tirtos.obj" "on_board_functionality.obj" "state_machine_control.obj" "utility.obj" "waterFiller.obj" "water_dispensing_control.obj" 
+	-$(RM) "big_red_button.d" "board_sleep.d" "Board.d" "error_responses.d" "main_tirtos.d" "on_board_functionality.d" "state_machine_control.d" "utility.d" "waterFiller.d" "water_dispensing_control.d" 
 	-@echo 'Finished clean'
 	-@echo ' '
 

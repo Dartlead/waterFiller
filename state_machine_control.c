@@ -1,5 +1,7 @@
-#include <state.h>
+/* Directly associated header file */
+#include <state_machine_control.h>
 
+/*--------------------------------Function Definitions-----------------------------------------*/
 /*
  * This function is intended to update the current state of the FSM. The FSM
  * will have no knowledge of transitions for better encapsulation.

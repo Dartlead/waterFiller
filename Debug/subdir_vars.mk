@@ -10,16 +10,16 @@ SYSCFG_SRCS += \
 ../empty.syscfg 
 
 C_SRCS += \
+../big_red_button.c \
 ../board_sleep.c \
-../button.c \
 ./Board.c \
+../error_responses.c \
 ../main_tirtos.c \
 ../on_board_functionality.c \
-../should_not_happen.c \
-../state.c \
+../state_machine_control.c \
 ../utility.c \
-../water.c \
-../waterFiller.c 
+../waterFiller.c \
+../water_dispensing_control.c 
 
 GEN_HDRS += \
 ./Board.h 
@@ -28,52 +28,52 @@ GEN_FILES += \
 ./Board.c 
 
 C_DEPS += \
+./big_red_button.d \
 ./board_sleep.d \
-./button.d \
 ./Board.d \
+./error_responses.d \
 ./main_tirtos.d \
 ./on_board_functionality.d \
-./should_not_happen.d \
-./state.d \
+./state_machine_control.d \
 ./utility.d \
-./water.d \
-./waterFiller.d 
+./waterFiller.d \
+./water_dispensing_control.d 
 
 OBJS += \
+./big_red_button.obj \
 ./board_sleep.obj \
-./button.obj \
 ./Board.obj \
+./error_responses.obj \
 ./main_tirtos.obj \
 ./on_board_functionality.obj \
-./should_not_happen.obj \
-./state.obj \
+./state_machine_control.obj \
 ./utility.obj \
-./water.obj \
-./waterFiller.obj 
+./waterFiller.obj \
+./water_dispensing_control.obj 
 
 OBJS__QUOTED += \
+"big_red_button.obj" \
 "board_sleep.obj" \
-"button.obj" \
 "Board.obj" \
+"error_responses.obj" \
 "main_tirtos.obj" \
 "on_board_functionality.obj" \
-"should_not_happen.obj" \
-"state.obj" \
+"state_machine_control.obj" \
 "utility.obj" \
-"water.obj" \
-"waterFiller.obj" 
+"waterFiller.obj" \
+"water_dispensing_control.obj" 
 
 C_DEPS__QUOTED += \
+"big_red_button.d" \
 "board_sleep.d" \
-"button.d" \
 "Board.d" \
+"error_responses.d" \
 "main_tirtos.d" \
 "on_board_functionality.d" \
-"should_not_happen.d" \
-"state.d" \
+"state_machine_control.d" \
 "utility.d" \
-"water.d" \
-"waterFiller.d" 
+"waterFiller.d" \
+"water_dispensing_control.d" 
 
 GEN_FILES__QUOTED += \
 "Board.c" 
@@ -82,16 +82,16 @@ GEN_HDRS__QUOTED += \
 "Board.h" 
 
 C_SRCS__QUOTED += \
+"../big_red_button.c" \
 "../board_sleep.c" \
-"../button.c" \
 "./Board.c" \
+"../error_responses.c" \
 "../main_tirtos.c" \
 "../on_board_functionality.c" \
-"../should_not_happen.c" \
-"../state.c" \
+"../state_machine_control.c" \
 "../utility.c" \
-"../water.c" \
-"../waterFiller.c" 
+"../waterFiller.c" \
+"../water_dispensing_control.c" 
 
 SYSCFG_SRCS__QUOTED += \
 "../empty.syscfg" 

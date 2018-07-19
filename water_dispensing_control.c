@@ -1,8 +1,14 @@
-#include <stdbool.h>
-#include <water.h>
+/* Directly associated header file */
+#include <water_dispensing_control.h>
 
-/* dispenseWater(void)
- * This function is intended to actuate the motor to funnel water from the container into
+/* Project Header files */
+#include <utility.h>
+
+/* Standard header files */
+#include <stdbool.h>
+
+/*--------------------------------Function Definitions-----------------------------------------*/
+/* This function is intended to actuate the motor to funnel water from the container into
  * the dog's water bowl.
  *
  * Inputs: none
@@ -21,7 +27,7 @@ bool dispense_water(void)
  */
 int check_water_level(void)
 {
-    return convert_to_percentage(80);
+    return convert_value_to_percentage(80, 100);
 }
 
 

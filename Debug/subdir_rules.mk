@@ -3,17 +3,17 @@
 ################################################################################
 
 # Each subdirectory must supply rules for building sources it contributes
+big_red_button.obj: ../big_red_button.c $(GEN_OPTS) | $(GEN_HDRS)
+	@echo 'Building file: "$<"'
+	@echo 'Invoking: ARM Compiler'
+	"/Applications/ti/ccsv8/tools/compiler/ti-cgt-arm_18.1.2.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=vfplib -me --include_path="/Applications/ti/Workspace/waterFiller" --include_path="/Applications/ti/Workspace/waterFiller/Debug" --include_path="/Applications/ti/simplelink_cc32xx_sdk_2_20_00_10/source/ti/posix/ccs" --include_path="/Applications/ti/ccsv8/tools/compiler/ti-cgt-arm_18.1.2.LTS/include" -g --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --preproc_with_compile --preproc_dependency="big_red_button.d_raw" $(GEN_OPTS__FLAG) "$<"
+	@echo 'Finished building: "$<"'
+	@echo ' '
+
 board_sleep.obj: ../board_sleep.c $(GEN_OPTS) | $(GEN_HDRS)
 	@echo 'Building file: "$<"'
 	@echo 'Invoking: ARM Compiler'
 	"/Applications/ti/ccsv8/tools/compiler/ti-cgt-arm_18.1.2.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=vfplib -me --include_path="/Applications/ti/Workspace/waterFiller" --include_path="/Applications/ti/Workspace/waterFiller/Debug" --include_path="/Applications/ti/simplelink_cc32xx_sdk_2_20_00_10/source/ti/posix/ccs" --include_path="/Applications/ti/ccsv8/tools/compiler/ti-cgt-arm_18.1.2.LTS/include" -g --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --preproc_with_compile --preproc_dependency="board_sleep.d_raw" $(GEN_OPTS__FLAG) "$<"
-	@echo 'Finished building: "$<"'
-	@echo ' '
-
-button.obj: ../button.c $(GEN_OPTS) | $(GEN_HDRS)
-	@echo 'Building file: "$<"'
-	@echo 'Invoking: ARM Compiler'
-	"/Applications/ti/ccsv8/tools/compiler/ti-cgt-arm_18.1.2.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=vfplib -me --include_path="/Applications/ti/Workspace/waterFiller" --include_path="/Applications/ti/Workspace/waterFiller/Debug" --include_path="/Applications/ti/simplelink_cc32xx_sdk_2_20_00_10/source/ti/posix/ccs" --include_path="/Applications/ti/ccsv8/tools/compiler/ti-cgt-arm_18.1.2.LTS/include" -g --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --preproc_with_compile --preproc_dependency="button.d_raw" $(GEN_OPTS__FLAG) "$<"
 	@echo 'Finished building: "$<"'
 	@echo ' '
 
@@ -37,6 +37,13 @@ Board.obj: ./Board.c $(GEN_OPTS) | $(GEN_HDRS)
 	@echo 'Finished building: "$<"'
 	@echo ' '
 
+error_responses.obj: ../error_responses.c $(GEN_OPTS) | $(GEN_HDRS)
+	@echo 'Building file: "$<"'
+	@echo 'Invoking: ARM Compiler'
+	"/Applications/ti/ccsv8/tools/compiler/ti-cgt-arm_18.1.2.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=vfplib -me --include_path="/Applications/ti/Workspace/waterFiller" --include_path="/Applications/ti/Workspace/waterFiller/Debug" --include_path="/Applications/ti/simplelink_cc32xx_sdk_2_20_00_10/source/ti/posix/ccs" --include_path="/Applications/ti/ccsv8/tools/compiler/ti-cgt-arm_18.1.2.LTS/include" -g --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --preproc_with_compile --preproc_dependency="error_responses.d_raw" $(GEN_OPTS__FLAG) "$<"
+	@echo 'Finished building: "$<"'
+	@echo ' '
+
 main_tirtos.obj: ../main_tirtos.c $(GEN_OPTS) | $(GEN_HDRS)
 	@echo 'Building file: "$<"'
 	@echo 'Invoking: ARM Compiler'
@@ -51,17 +58,10 @@ on_board_functionality.obj: ../on_board_functionality.c $(GEN_OPTS) | $(GEN_HDRS
 	@echo 'Finished building: "$<"'
 	@echo ' '
 
-should_not_happen.obj: ../should_not_happen.c $(GEN_OPTS) | $(GEN_HDRS)
+state_machine_control.obj: ../state_machine_control.c $(GEN_OPTS) | $(GEN_HDRS)
 	@echo 'Building file: "$<"'
 	@echo 'Invoking: ARM Compiler'
-	"/Applications/ti/ccsv8/tools/compiler/ti-cgt-arm_18.1.2.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=vfplib -me --include_path="/Applications/ti/Workspace/waterFiller" --include_path="/Applications/ti/Workspace/waterFiller/Debug" --include_path="/Applications/ti/simplelink_cc32xx_sdk_2_20_00_10/source/ti/posix/ccs" --include_path="/Applications/ti/ccsv8/tools/compiler/ti-cgt-arm_18.1.2.LTS/include" -g --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --preproc_with_compile --preproc_dependency="should_not_happen.d_raw" $(GEN_OPTS__FLAG) "$<"
-	@echo 'Finished building: "$<"'
-	@echo ' '
-
-state.obj: ../state.c $(GEN_OPTS) | $(GEN_HDRS)
-	@echo 'Building file: "$<"'
-	@echo 'Invoking: ARM Compiler'
-	"/Applications/ti/ccsv8/tools/compiler/ti-cgt-arm_18.1.2.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=vfplib -me --include_path="/Applications/ti/Workspace/waterFiller" --include_path="/Applications/ti/Workspace/waterFiller/Debug" --include_path="/Applications/ti/simplelink_cc32xx_sdk_2_20_00_10/source/ti/posix/ccs" --include_path="/Applications/ti/ccsv8/tools/compiler/ti-cgt-arm_18.1.2.LTS/include" -g --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --preproc_with_compile --preproc_dependency="state.d_raw" $(GEN_OPTS__FLAG) "$<"
+	"/Applications/ti/ccsv8/tools/compiler/ti-cgt-arm_18.1.2.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=vfplib -me --include_path="/Applications/ti/Workspace/waterFiller" --include_path="/Applications/ti/Workspace/waterFiller/Debug" --include_path="/Applications/ti/simplelink_cc32xx_sdk_2_20_00_10/source/ti/posix/ccs" --include_path="/Applications/ti/ccsv8/tools/compiler/ti-cgt-arm_18.1.2.LTS/include" -g --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --preproc_with_compile --preproc_dependency="state_machine_control.d_raw" $(GEN_OPTS__FLAG) "$<"
 	@echo 'Finished building: "$<"'
 	@echo ' '
 
@@ -72,17 +72,17 @@ utility.obj: ../utility.c $(GEN_OPTS) | $(GEN_HDRS)
 	@echo 'Finished building: "$<"'
 	@echo ' '
 
-water.obj: ../water.c $(GEN_OPTS) | $(GEN_HDRS)
-	@echo 'Building file: "$<"'
-	@echo 'Invoking: ARM Compiler'
-	"/Applications/ti/ccsv8/tools/compiler/ti-cgt-arm_18.1.2.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=vfplib -me --include_path="/Applications/ti/Workspace/waterFiller" --include_path="/Applications/ti/Workspace/waterFiller/Debug" --include_path="/Applications/ti/simplelink_cc32xx_sdk_2_20_00_10/source/ti/posix/ccs" --include_path="/Applications/ti/ccsv8/tools/compiler/ti-cgt-arm_18.1.2.LTS/include" -g --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --preproc_with_compile --preproc_dependency="water.d_raw" $(GEN_OPTS__FLAG) "$<"
-	@echo 'Finished building: "$<"'
-	@echo ' '
-
 waterFiller.obj: ../waterFiller.c $(GEN_OPTS) | $(GEN_HDRS)
 	@echo 'Building file: "$<"'
 	@echo 'Invoking: ARM Compiler'
 	"/Applications/ti/ccsv8/tools/compiler/ti-cgt-arm_18.1.2.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=vfplib -me --include_path="/Applications/ti/Workspace/waterFiller" --include_path="/Applications/ti/Workspace/waterFiller/Debug" --include_path="/Applications/ti/simplelink_cc32xx_sdk_2_20_00_10/source/ti/posix/ccs" --include_path="/Applications/ti/ccsv8/tools/compiler/ti-cgt-arm_18.1.2.LTS/include" -g --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --preproc_with_compile --preproc_dependency="waterFiller.d_raw" $(GEN_OPTS__FLAG) "$<"
+	@echo 'Finished building: "$<"'
+	@echo ' '
+
+water_dispensing_control.obj: ../water_dispensing_control.c $(GEN_OPTS) | $(GEN_HDRS)
+	@echo 'Building file: "$<"'
+	@echo 'Invoking: ARM Compiler'
+	"/Applications/ti/ccsv8/tools/compiler/ti-cgt-arm_18.1.2.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=vfplib -me --include_path="/Applications/ti/Workspace/waterFiller" --include_path="/Applications/ti/Workspace/waterFiller/Debug" --include_path="/Applications/ti/simplelink_cc32xx_sdk_2_20_00_10/source/ti/posix/ccs" --include_path="/Applications/ti/ccsv8/tools/compiler/ti-cgt-arm_18.1.2.LTS/include" -g --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --preproc_with_compile --preproc_dependency="water_dispensing_control.d_raw" $(GEN_OPTS__FLAG) "$<"
 	@echo 'Finished building: "$<"'
 	@echo ' '
 
