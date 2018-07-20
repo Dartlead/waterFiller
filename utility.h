@@ -21,22 +21,13 @@
 extern int convert_value_to_percentage(int value_to_convert, int max_possible_value);
 
 /*
- * This function is intended to convert an integer type value seconds into a custom
- * useconds_t type microseconds.
- *
- * Inputs: seconds - the value that is going to be converted into microseconds
- * Outputs: the converted value in microseconds
- */
-extern useconds_t convert_seconds_to_useconds(int seconds);
-
-/*
  * This function is intended to delay the processor by a user-specified amount of time.
  * Note that time here is measured in clock cycles.
  *
  * Inputs: the amount of time desired to delay
  * Outputs: none
  */
-extern void delay(int time);
+extern void delay(unsigned long time_to_delay);
 
 
 

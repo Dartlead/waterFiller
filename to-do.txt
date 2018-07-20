@@ -1,9 +1,4 @@
-1) Ask about converting from int to unsigned long b/c usleep() takes in an unsigned long but the function low_power_deep_sleep should not take in an unsigned long but rather an int so that the callign code doesn't have to concern itself with the custom data type useconds_t.
+1) Right now the interrupt from the button does not break sleep. Fix this!i
 
-2) Same as (1) but with delay(). Delay() should take in an int but in the .c file the int should be converted to an unsigned long that is required by the UtilsDelay() function.
+2) Look more into proper error logging (try for simpler methods as this project is supposed to be simple)
 
-3) Fix the usage of delay() in should_not_happen.c. Maybe use #defines for the delay time???
-
-4) Right now the interrupt from the button does not break sleep. Fix this!i
-
-5) Is an error message buffer a good idea for a small token of info on perhaps why the system entered the error state in the first place?

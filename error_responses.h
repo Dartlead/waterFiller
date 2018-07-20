@@ -6,6 +6,9 @@
 #ifndef ERROR_RESPONSES_H_
 #define ERROR_RESPONSES_H_
 
+/* Reference for delay time as it is measured in clock cycles */
+typedef unsigned long clock_cycles;
+
 /*
  * This function is intended to show that the system has encountered something that
  * can be EXPECTED and is wrong. To demonstrate this LED D7 will blink indefinitely.

@@ -12,7 +12,7 @@
 #include <water_dispensing_control.h>
 
 /*--------------------------------Constants & Pound Defines------------------------------------*/
-#define DEBUG
+#define DEBUG //define debug because the physical GPIO button is not available so use the on-board instead
 
 /*--------------------------------Global Variables---------------------------------------------*/
 
@@ -29,7 +29,7 @@ void *mainThread(void *arg0)
 #endif
 
     /* Create the sleep duration */
-    const int sleep_duration = 2;
+    const unsigned int sleep_duration = 2;
 
     /* Create the buffer to hold potential error messages */
     char *error_message_buffer;

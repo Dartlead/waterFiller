@@ -23,19 +23,6 @@ int convert_value_to_percentage(int value_to_convert, int max_possible_value)
 }
 
 /*
- * This function is intended to convert an integer type value seconds into a custom
- * useconds_t type microseconds by multiplying the seconds parameter by 1e6.
- *
- * Inputs: seconds - the value that is going to be converted into microseconds
- * Outputs: the converted value in microseconds
- */
-useconds_t convert_seconds_to_useconds(int seconds)
-{
-    useconds_t microseconds = seconds * 1000000;
-    return microseconds;
-}
-
-/*
  * This function is intended to delay the processor by a user-specified amount of time
  * by using the utils.h device header file function UtilsDelay(). Note here that time
  * is measured in clock cycles.
@@ -43,8 +30,8 @@ useconds_t convert_seconds_to_useconds(int seconds)
  * Inputs: the amount of time desired to delay
  * Outputs: none
  */
-void delay(int time)
+void delay(unsigned long time_to_delay)
 {
-    UtilsDelay(time);
+    UtilsDelay(time_to_delay);
 }
 

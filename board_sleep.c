@@ -3,7 +3,6 @@
 
 /* Driver Header files */
 #include <ti/drivers/Power.h>
-#include "sys/types.h"
 
 /* Example/Board Header files */
 #include <unistd.h>
@@ -19,7 +18,7 @@
  * Inputs: sleep_duration - the amount of time desired in low power deep sleep
  * Outputs: none
  */
-void low_power_deep_sleep_in_seconds(int sleep_duration)
+void low_power_deep_sleep_in_seconds(unsigned int sleep_duration)
 {
     sleep(sleep_duration);
 }
@@ -32,12 +31,9 @@ void low_power_deep_sleep_in_seconds(int sleep_duration)
  * Inputs: sleep_duration - the amount of time desired in low power deep sleep
  * Outputs: none
  */
-void low_power_deep_sleep_in_useconds(int sleep_duration)
+void low_power_deep_sleep_in_useconds(useconds_t sleep_duration)
 {
-    /* Change the integer parameter to useconds_t data type */
-    useconds_t sleep_duration_useconds = convert_seconds_to_useconds(sleep_duration);
-
-    usleep(sleep_duration_useconds);
+    usleep(sleep_duration);
 }
 
 

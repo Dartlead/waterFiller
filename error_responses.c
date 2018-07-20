@@ -6,7 +6,7 @@
 #include <on_board_functionality.h>
 
 /*--------------------------------Constants & Pound Defines------------------------------------*/
-static const int delay_time = 16000000; //24000000 clock cycles ~= 0.6 seconds
+static const clock_cycles delay_time = 8000000; //8000000 clock cycles ~= 0.3 seconds
 
 /*--------------------------------Function Definitions-----------------------------------------*/
 /*
